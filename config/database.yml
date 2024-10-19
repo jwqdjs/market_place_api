@@ -15,7 +15,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: "Jwqdjs694238#"
-  host: localhost
+  host: 127.0.0.1 
 development:
   <<: *default
   database: market_place_api_development
