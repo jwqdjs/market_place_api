@@ -24,8 +24,8 @@
 /.bundle
 
 # 忽略默认的 SQLite 数据库
-/db/*.sqlite3
-/db/*.sqlite3-journal
+/storage/*.sqlite3
+/storage/*.sqlite3-journal
 
 # 忽略所有日志文件和临时文件
 /log/*
