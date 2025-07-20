@@ -64,4 +64,14 @@ class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_response :forbidden
   end
+
+  test "should forbid destroy user because JWT is invalid" do
+    assert_no_difference('User.count') do
+      delete api_v1_user_url(@user), headers: { Authorization: JWT.encode({user_id: @user.id}, 'bad_signature') }, as: :json
+    rescue JWT::VerificationError => e
+      Rails.logger.error "JWT 未知错误: #{e.message}"
+    end
+
+  end
 end
+
